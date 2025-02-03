@@ -11,7 +11,7 @@ function setup() {
 function draw() {
   background(220);
   //Gravity is a vector pointing down that is added to acceleration
-  let gravity = createVector(0, 0.1);
+  let gravity = createVector(0, 0.5);
 
   // Apply forces
   acceleration.add(gravity);
@@ -28,7 +28,7 @@ function draw() {
   //              Do you how to slow down the ball when it hits the edge?
   ////////////////////////////////////////////////////////////////////////////////
   // Check edges
-  let bounce = -1;
+  let bounce = -0.9;
   if (position.x > width) {
     position.x = width;
     velocity.x *= bounce;
@@ -49,6 +49,15 @@ function draw() {
     //assignment 2: mouseIsPressed is a boolean variable that is true when the mouse is pressed.
     //              add wind force to the acceleration vector
     ////////////////////////////////////////////////////////////////////////////////
+    let mousePosition = createVector(mouseX, mouseY);
+    let force = p5.Vector.sub(this.position, mousePosition);
+
+    //let distance = force.mag();
+
+    force.setMag(force.mag() * 0.001);
+
+    //let wind = createVector(0.1, -0.1);
+    acceleration.add(force);
   }
 
   // Draw object
