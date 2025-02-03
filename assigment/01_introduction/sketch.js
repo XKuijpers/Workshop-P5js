@@ -14,4 +14,9 @@ function draw() {
   noStroke();
   //creates an ellipse at the mouse position with a width and height of 50
   ellipse(mouseX, mouseY, 50, 50);
+
+  ////////////////////////////////////////////////////////////////////////////////
+  //assignment 1: Try to make your own extra circles and give them different colors.
+  //              Maybe make the color for each circle random
+  ////////////////////////////////////////////////////////////////////////////////
 }
